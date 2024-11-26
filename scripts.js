@@ -6,6 +6,9 @@ let score;
 let highScore = parseInt(localStorage.getItem('highScore')) || 0;
 document.getElementById('high-score').innerText = highScore;
 
+// For touch controls
+let startX, startY;
+
 function startGame() {
     snake = [{ x: 10, y: 10 }];
     food = getRandomFoodPosition();
@@ -17,6 +20,8 @@ function startGame() {
     clearInterval(gameInterval);
     gameInterval = setInterval(gameLoop, 300);
     document.addEventListener('keydown', changeDirection);
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchmove', handleTouchMove, false);
     drawGame();
 }
 
@@ -39,6 +44,41 @@ function changeDirection(event) {
             if (direction.x === 0) direction = { x: 1, y: 0 };
             break;
     }
+}
+
+// For touch controls
+function handleTouchStart(evt) {
+    const firstTouch = evt.touches[0];
+    startX = firstTouch.clientX;
+    startY = firstTouch.clientY;
+}
+
+function handleTouchMove(evt) {
+    if (!startX || !startY) return;
+
+    const moveX = evt.touches[0].clientX;
+    const moveY = evt.touches[0].clientY;
+
+    const diffX = startX - moveX;
+    const diffY = startY - moveY;
+
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX > 0 && direction.x === 0) {
+            direction = { x: -1, y: 0 }; // Left swipe
+        } else if (diffX < 0 && direction.x === 0) {
+            direction = { x: 1, y: 0 }; // Right swipe
+        }
+    } else {
+        if (diffY > 0 && direction.y === 0) {
+            direction = { x: 0, y: -1 }; // Up swipe
+        } else if (diffY < 0 && direction.y === 0) {
+            direction = { x: 0, y: 1 }; // Down swipe
+        }
+    }
+
+    // Reset values
+    startX = null;
+    startY = null;
 }
 
 function gameLoop() {
