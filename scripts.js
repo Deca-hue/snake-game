@@ -15,7 +15,7 @@ function startGame() {
     document.getElementById('game-area').innerHTML = '';
     document.getElementById('game-over').style.display = 'none';
     clearInterval(gameInterval);
-    gameInterval = setInterval(gameLoop, 200);
+    gameInterval = setInterval(gameLoop, 300);
     document.addEventListener('keydown', changeDirection);
     drawGame();
 }
