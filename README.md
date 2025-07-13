@@ -8,7 +8,7 @@ A smooth, responsive recreation of the **classic Snake Game** using vanilla **Ja
 
 ## 🎮 Play Now
 
-👉 [Live Demo](https://your-live-demo-link.com)
+👉 [Live Demo](https://snake-game-ymml.vercel.app/)
 
 ---
 
@@ -98,9 +98,8 @@ Great for:
 
 ## 🙌 Connect With Me
 
-💼 Portfolio: [your-portfolio.com](https://your-portfolio.com)  
-🔗 LinkedIn: [linkedin.com/in/yourname](https://linkedin.com/in/yourname)  
-🐦 Twitter: [@yourhandle](https://twitter.com/yourhandle)
+💼 Portfolio: [your-portfolio.com](https://my-portfolio-two-eta-13.vercel.app/)  
+🐦 Twitter: [@yourhandle](https://x.com/Elitetech25)
 
 ---
 
